@@ -35,6 +35,7 @@ const BlogList = (props) => {
             key={singleData.title}
             {...singleData}
             coverImg={singleData.cover}
+            wholeObject={singleData}
           />
         </Col>
       ))}
