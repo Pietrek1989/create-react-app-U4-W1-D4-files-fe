@@ -6,6 +6,29 @@ import { Editor } from "react-draft-wysiwyg";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import "./styles.css";
 const NewBlogPost = (props) => {
+  const postArticle = async (article) => {
+    try {
+      let res = await fetch("http://localhost:3001/articles", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(article),
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const [article, setArticle] = useState({
+    category: "",
+    title: "",
+    readTime: {
+      value: 1,
+      unit: "minutes",
+    },
+    author: {
+      name: "Vladimir Dracula",
+    },
+    comments: [],
+  });
   const [editorState, setEditorState] = useState(() =>
     EditorState.createEmpty()
   );
@@ -24,11 +47,9 @@ const NewBlogPost = (props) => {
         <Form.Group controlId="blog-category" className="mt-3">
           <Form.Label>Category</Form.Label>
           <Form.Control size="lg" as="select">
-            <option>Category1</option>
-            <option>Category2</option>
-            <option>Category3</option>
-            <option>Category4</option>
-            <option>Category5</option>
+            <option>Funny Things</option>
+            <option>Interesting Things</option>
+            <option>Scary things</option>
           </Form.Control>
         </Form.Group>
         <Form.Group controlId="blog-content" className="mt-3">
