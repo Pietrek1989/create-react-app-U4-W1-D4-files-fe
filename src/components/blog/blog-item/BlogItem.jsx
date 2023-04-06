@@ -1,5 +1,5 @@
 import React from "react";
-import { Card } from "react-bootstrap";
+import { Button, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import BlogAuthor from "../blog-author/BlogAuthor";
 import "./styles.css";
@@ -8,6 +8,7 @@ const BlogItem = (props) => {
     e.stopPropagation();
   };
   const { title, author, _id } = props;
+  console.log(author);
   return (
     <Link to={`/blog/${_id}`} className="blog-link">
       <Card className="blog-card">
@@ -16,12 +17,12 @@ const BlogItem = (props) => {
           <Card.Title>{title}</Card.Title>
         </Card.Body>
         <Card.Footer>
-          <BlogAuthor {...author} />
+          <BlogAuthor author={author} />
           <a
             onClick={stoping}
             href={`${process.env.REACT_APP_BE_URL}/files/${props.wholeObject.id}/pdf`}
           >
-            Get more info here
+            Get PDF version
           </a>
         </Card.Footer>
       </Card>

@@ -1,0 +1,16 @@
+#login-form {
+  height: 100vh;
+}
+#google-button {
+  background-color: #fff;
+  color: #737373;
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  border: 1px solid #737373;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
