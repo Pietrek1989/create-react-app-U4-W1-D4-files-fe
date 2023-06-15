@@ -111,6 +111,7 @@ const NewBlogPost = (props) => {
         console.error(error);
       });
   };
+
   return (
     <Container className="new-blog-container">
       <Form className="mt-5">
